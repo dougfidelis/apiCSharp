@@ -15,7 +15,7 @@ namespace Data.Repository
             List<T> list = new List<T>();
             using (WarrenContest warrenContext = new WarrenContest())
             {
-                list = warrenContext.Animal.ToList();
+                list = warrenContext.Set<T>().ToList();
             }
 
             return list;
