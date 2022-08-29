@@ -13,6 +13,7 @@ namespace Data.Contest
         #region Props
         public DbSet<Animal> Animal { get; set; }
         public DbSet<Planta> Planta { get; set; }
+        public DbSet<Usuario> Usuario { get; set; }
 
         #endregion
 

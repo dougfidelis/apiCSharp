@@ -34,20 +34,33 @@ namespace Data.Repository
 
         public virtual string Delete(int id)
         {
-            return "Deletado";
+            using (WarrenContest context = new WarrenContest())
+            {
+                context.Entry(this.GetById(id)).State = Microsoft.EntityFrameworkCore.EntityState.Deleted;
+                context.SaveChanges();
+            }
+            return "Deleted";
         }
-
         
 
         public virtual T GetById(int id)
         {
-            T entity = null;
-            return entity;
+            T model = null;
+            using (WarrenContest context = new WarrenContest())
+            {
+                model = context.Set<T>().Find(id);
+            }
+            return model;
         }
 
         public virtual string Update(T entity)
         {
-            return "Alterado";
+            using (WarrenContest context = new WarrenContest())
+            {
+                context.Entry(entity).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+                context.SaveChanges();
+            }
+            return "Modified";
         }
     }
 }

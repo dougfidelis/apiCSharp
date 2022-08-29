@@ -4,28 +4,11 @@ using Data.Repository;
 
 namespace WebApi.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class AnimalController : ControllerBase
+    public class AnimalController : GenericController<Animal, AnimalRepository>
     {
-        private AnimalRepository repository;
+        public AnimalController() : base(new AnimalRepository())
+        {
 
-        public AnimalController()
-        {
-            repository = new AnimalRepository();
-        }
-        [HttpGet]
-        public List<Animal> Get()
-        {
-          
-            return repository.GetAll();
-        }
-
-        [HttpPost]
-        public string Post(Animal model)
-        {
-            
-            return repository.Create(model);
         }
     }
 }
