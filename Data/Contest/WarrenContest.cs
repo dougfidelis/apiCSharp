@@ -19,7 +19,7 @@ namespace Data.Contest
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseNpgsql("host=localhost; Port=5435; Database=postgres; UserId=postgres; Password=123456");
+            optionsBuilder.UseNpgsql("host=192.168.0.119; Port=5435; Database=postgres; UserId=postgres; Password=123456");
         }
     }
 }
